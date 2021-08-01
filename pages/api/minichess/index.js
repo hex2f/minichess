@@ -48,7 +48,7 @@ async function setupBoard(interaction) {
       embeds: [
         {
           title: `${whiteName} - ${interaction.member.nick || interaction.member.user.username}`,
-          description: `<@${whiteUser}>, make your move`,
+          description: `<@${whiteUser}>, make your move` + `\n[Get this app at minichess.leah.chat](https://minichess.leah.chat/)`,
           color: 0xffffff,
           footer: {
             text: `${newBoard.fenish()} ~${whiteUser}|${interaction.member.user.id}`
@@ -117,7 +117,7 @@ async function selectPiece(interaction) {
           {
             title: interaction.message.embeds[0].title,
             color: interaction.message.embeds[0].color,
-            description,
+            description: description + `\n[Get this app at minichess.leah.chat](https://minichess.leah.chat/)`,
             footer: {
               text: `${engineBoard.fenish()}${fenSuffix} ~${whiteId}|${blackId}`
             }
@@ -157,6 +157,8 @@ async function selectPiece(interaction) {
       newBoard[5-Number(selection[1])].components[charToI(selection[0])].style = 4
     }
   }
+
+  description += `\n[Get this app at minichess.leah.chat](https://minichess.leah.chat/)`
 
   return {
     type: 7,

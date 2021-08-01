@@ -39,7 +39,7 @@ module.exports = async (request, response) => {
           data: {
             embeds: [
               {
-                title: `${message.member.nick || message.member.user.username} wants to play MiniChess`,
+                title: `${message.member.nick || message.member.user.username} wants to play MiniChess` + `\n[Get this app at minichess.leah.chat](https://minichess.leah.chat/)`,
                 color: 0xffffff
               }
             ],
