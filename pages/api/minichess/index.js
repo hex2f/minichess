@@ -90,7 +90,7 @@ async function selectPiece(interaction) {
   console.log(engineBoard.toString())
 
   let newBoard
-  let description
+  let description = ''
   let fenSuffix = ''
 
   // User selected their first piece
