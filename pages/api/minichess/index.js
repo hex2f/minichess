@@ -149,7 +149,7 @@ async function selectPiece(interaction) {
       })
       description = `<@${player === 'w' ? whiteId : blackId}> played ${piece}${selection}. <@${player === 'w' ? blackId : whiteId}>, make your move`
       if (engineBoard.moves().length <= 0 || !engineBoard.hasKing(engineBoard.turn)) {
-        description = engineBoard.turn ? `<@${blackId}> has won` : `<@${whiteId}> has won`
+        description = engineBoard.turn === 'white' ? `<@${blackId}> has won` : `<@${whiteId}> has won`
       }
     } else {
       description = `<@${player === 'w' ? whiteId : blackId}>, ${piece}${selection} isn't a legal move.`
