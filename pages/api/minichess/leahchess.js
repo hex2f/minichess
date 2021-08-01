@@ -252,8 +252,8 @@ class Board {
     if (
       x > 0 &&
       y > 0 &&
-      x < this.#width - 1 &&
-      y < this.#height - 1 &&
+      x < this.#width &&
+      y < this.#height &&
       PieceColor(this.#cells[y][x]) !== color
     ) {
       moves.push(xyToUCI(x, y))
