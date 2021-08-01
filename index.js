@@ -1,7 +1,7 @@
 const chess = require('./pages/api/minichess/leahchess')
 const board = new chess.Board(5)
-board.turn = 'black'
 console.log(board.toString())
-const recon = chess.from(board.fenish())
-console.log(recon.moves())
+console.log(board.moves())
+board.play('c2c3')
 console.log(board.toString())
+console.log(board.moves())

@@ -17,7 +17,7 @@ const Piece = (piece, color) => pieces[piece] | colors[color]
 const UCI = (coords) => {
   let x = ['a', 'b', 'c', 'd', 'e'].indexOf(coords[0])
   let y = 5 - Number(coords[1])
-  console.log(coords)
+  // console.log(coords)
   if (coords.length === 4) {
     let x2 = ['a', 'b', 'c', 'd', 'e'].indexOf(coords[2])
     let y2 = 5 - Number(coords[3])
@@ -28,7 +28,7 @@ const UCI = (coords) => {
 }
 
 const xyToUCI = (x, y) => {
-  console.log({x})
+  // console.log({x})
   let a = ['a', 'b', 'c', 'd', 'e'][x]
   let b = 5 - y
 
@@ -97,12 +97,12 @@ class Board {
     this.put('d1', 'Q')
     this.put('e1', 'K')
 
-    console.log(this.#cells)
+    // console.log(this.#cells)
   }
 
   at (coords) {
     const [x,y] = UCI(coords)
-    if (isNaN(x) || isNaN(y) || x < 0 || x >= this.#width - 1 || y < 0 || y >= this.#height - 1) { return -1 }
+    if (isNaN(x) || isNaN(y) || x < 0 || x >= this.#width || y < 0 || y >= this.#height) { return -1 }
     return this.#cells[y][x]
   }
 
@@ -166,7 +166,7 @@ class Board {
 
   investigate_pawn(x, y, piece) {
     let sqName = xyToUCI(x, y)
-    console.log(sqName)
+    // console.log(sqName)
     let color = PieceColor(piece)
     let moves = []
 
@@ -175,7 +175,7 @@ class Board {
     if (y+dir < 0 || y+dir > this.#height) { return [] }
 
     if (this.at(xyToUCI(x, y+dir)) === shortPieces['.']) { moves.push(xyToUCI(x, y+dir)) }
-    console.log(x, y, xyToUCI(x, y+dir), UCI(x,y+dir), this.at(xyToUCI(x, y+dir)))
+    // console.log(x, y, xyToUCI(x, y+dir), UCI(x,y+dir), this.at(xyToUCI(x, y+dir)))
     if (x > 0 && this.at(xyToUCI(x-1, y+dir)) !== shortPieces['.'] &&
         PieceColor(this.at(xyToUCI(x-1, y+dir))) !== color) { moves.push(xyToUCI(x-1, y+dir)) }
     if (x < this.#width-1 && this.at(xyToUCI(x+1, y+dir)) !== shortPieces['.'] &&
