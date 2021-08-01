@@ -250,8 +250,8 @@ class Board {
     let moves = []
     let color = PieceColor(piece)
     if (
-      x > 0 &&
-      y > 0 &&
+      x >= 0 &&
+      y >= 0 &&
       x < this.#width &&
       y < this.#height &&
       PieceColor(this.#cells[y][x]) !== color
